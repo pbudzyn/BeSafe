@@ -1,0 +1,16 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div class="navbar-form navbar-right">
+        @Html.ActionLink("Log out", "Logout", "Account", null, new { @class = "btn btn-default" })
+    </div>
+    <div class="navbar-text navbar-right">
+        signed in as <strong> @HttpContext.Current.User.Identity.Name</strong>
+    </div>
+}
+else
+{
+    <div class="navbar-form navbar-right">
+        @Html.ActionLink("Log in", "Login", "Account", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Sign in", "Register", "Account", null, new { @class = "btn btn-default" })
+    </div>
+}
