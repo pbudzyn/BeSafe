@@ -21,6 +21,8 @@ namespace PlaceNetwork
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+					  "~/Content/glyphicons-halflings-regular.svg",
+					  "~/Content/glyphicons-halflings-regular.ttf",
                       "~/Content/site.css"));
         }
     }

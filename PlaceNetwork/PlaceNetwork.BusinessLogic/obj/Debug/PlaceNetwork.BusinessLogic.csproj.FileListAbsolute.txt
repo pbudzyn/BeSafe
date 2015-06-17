@@ -22,3 +22,15 @@ C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.csprojResolveAssemblyReference.cache
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.dll
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.pdb
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\PlaceNetwork.BusinessLogic.dll.config
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\PlaceNetwork.BusinessLogic.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\PlaceNetwork.BusinessLogic.pdb
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\EntityFramework.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\PlaceNetwork.Data.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\PlaceNetwork.Data.pdb
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\EntityFramework.xml
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.csprojResolveAssemblyReference.cache
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.BusinessLogic\obj\Debug\PlaceNetwork.BusinessLogic.pdb

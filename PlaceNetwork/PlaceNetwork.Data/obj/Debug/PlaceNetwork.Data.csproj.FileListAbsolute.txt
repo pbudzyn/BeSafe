@@ -18,3 +18,13 @@ C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.Data\bin\Debug\EntityFra
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.dll
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.pdb
 C:\Users\Богдан\Desktop\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.csprojResolveAssemblyReference.cache
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\PlaceNetwork.Data.dll.config
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\PlaceNetwork.Data.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\PlaceNetwork.Data.pdb
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\EntityFramework.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\EntityFramework.xml
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.csprojResolveAssemblyReference.cache
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.dll
+C:\Users\byarem\Documents\GitHub\BeSafe\PlaceNetwork\PlaceNetwork.Data\obj\Debug\PlaceNetwork.Data.pdb

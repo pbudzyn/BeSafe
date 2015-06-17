@@ -1,97 +1,142 @@
-﻿@model PlaceNetwork.Models.UserLoginModel
-<script src="https://maps.googleapis.com/maps/api/js"></script>
+﻿<script src="https://maps.googleapis.com/maps/api/js"></script>
 <script src="/Scripts/app/GoogleMaps.js"></script>
 <!--<div class="row">
-    <div style="float: left; height: 500px" class="col-xs-12 col-sm-8" id="map-canvas"></div>
-    <div class="col-sm-1"></div>
-    <div class="col-xs-12 col-sm-3" style="float:right; height:500px">
-        <div class="list-group">
-            <a href="#" class="list-group-item" onclick=getAllPlaces()>All places</a>
-            <a href="#" class="list-group-item" onclick=getMyPlaces()>My places</a>
-        </div>
-    </div>
+	<div style="float: left; height: 500px" class="col-xs-12 col-sm-8" id="map-canvas"></div>
+	<div class="col-sm-1"></div>
+	<div class="col-xs-12 col-sm-3" style="float:right; height:500px">
+		<div class="list-group">
+			<a href="#" class="list-group-item" onclick=getAllPlaces()>All places</a>
+			<a href="#" class="list-group-item" onclick=getMyPlaces()>My places</a>
+		</div>
+	</div>
 </div>-->
 <div id="googleMap" style="width:auto;height:750px;"></div>
 
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title">Add place</h4>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="form-group">
-                        <label class="control-label">Title</label>
-                        <input type="text" class="form-control" id="placeTitle">
-                    </div>
-                    <div class="form-group">
-                        <label class="control-label">Description</label>
-                        <textarea class="form-control" id="placeDescription"> </textarea>
-                    </div>
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary" onclick=addPlace()>Save</button>
-            </div>
-        </div>
-    </div>
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title">Add place</h4>
+			</div>
+			<div class="modal-body">
+				<form>
+					<div class="form-group">
+						<label class="control-label">Title</label>
+						<input type="text" class="form-control" id="placeTitle">
+					</div>
+					<div class="form-group">
+						<label class="control-label">Description</label>
+						<textarea class="form-control" id="placeDescription"> </textarea>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+				<button type="button" class="btn btn-primary" onclick=addPlace()>Save</button>
+			</div>
+		</div>
+	</div>
 </div>
 
+<!-- add Friend Modal -->
+<div id="addFriendModal" class="modal fade" role="dialog" tabindex="-1" aria-hidden="true" style="position: absolute;">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add new friend</h4>
+			</div>
+			<div class="modal-body">
+				<label for="inputlg">Friend name</label>
+				<input class="form-control input-lg" id="friendName" type="text">
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" onclick=" addFriend ">Add</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+	<!-- add Friend Modal -->
+<div id="friendListModal" class="modal fade" role="dialog" style="position: absolute;">
+	<div class="modal-dialog">
+
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Friend list</h4>
+			</div>
+			<div class="modal-body">
+				<table class="table table-hover" id="friendList"></table>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
 <script>
-    function initialize() {
-        var map;
-        var elevator;
-        var myOptions = {
-            zoom: 16,
-            center: new google.maps.LatLng(49.8401724, 24.0296207),
-            mapTypeId: 'terrain'
-        };
-        map = new google.maps.Map($('#googleMap')[0], myOptions);
+	var googlemapDotsColors = ['red', 'yellow', 'blue', 'orange', 'pink', 'green', 'white', 'purple', 'ltblue'];
 
-        var result;
-        $.ajax({
-            dataType: "json",
-            type: 'GET',
-            url: '/api/place',
-            async: false
-        }).done(function (resp) {
-            for (var i = 0; i < resp.length; i++) {
-                var user = resp[i];
-                for (var j = 0; j < user.UserPoints.length; j++) {
-                    var p = user.UserPoints[j];
-                    var latlng = new google.maps.LatLng(p.Latitude, p.Longitude);
-                    new google.maps.Marker({
-                        position: latlng,
-                        map: map
-                    });
-                };
-            };
-        }).fail(function (resp) {
-            //$.notify(resp.status + ": " + resp.statusText);
-        });
+	function initialize() {
+		var myOptions = {
+			zoom: 16,
+			center: new google.maps.LatLng(49.8401724, 24.0296207),
+			mapTypeId: 'terrain'
+		};
+		var map = new google.maps.Map($('#googleMap')[0], myOptions);
 
-        $.ajax({
-            dataType: "json",
-            type: 'GET',
-            url: '/api/place/'+ model.Login.ToString(),
-            async: false
-        }).done(function (resp) {
-            for (var i = 0; i < resp.length; i++) {
-                var user = resp[i];
-                for (var j = 0; j < user.UserPoints.length; j++) {
-                    var p = user.UserPoints[j];
-                    var latlng = new google.maps.LatLng(p.Latitude, p.Longitude);
-                    new google.maps.Marker({
-                        position: latlng,
-                        map: map
-                    });
-                };
-            };
-        }).fail(function (resp) {
-            //$.notify(resp.status + ": " + resp.statusText);
-        });
-    }
-    google.maps.event.addDomListener(window, 'load', initialize);
+		$.ajax({
+			dataType: "json",
+			type: 'GET',
+			url: '/api/place',
+			async: false
+		}).done(function (resp) {
+			for (var i = 0; i < resp.length; i++) {
+				var user = resp[i];
+				for (var j = 0; j < user.UserPoints.length; j++) {
+					var p = user.UserPoints[j];
+					var latlng = new google.maps.LatLng(p.Latitude, p.Longitude);
+					new google.maps.Marker({
+						position: latlng,
+						map: map,
+						icon: 'http://maps.google.com/mapfiles/ms/icons/' + googlemapDotsColors[i] + '-dot.png',
+						title: 'ololo'
+					});
+				};
+			};
+		}).fail(function (resp) {
+			//$.notify(resp.status + ": " + resp.statusText);
+		});
+	}
+	google.maps.event.addDomListener(window, 'load', initialize);
+
+	function loadFriendList() {
+		var friendList = ['vasa', 'peter', 'pavlo'];
+		for (var i = 0; i < 2; i++) {
+			addRow(friendList[i]);
+		}
+	}
+
+	function addRow(friendName) {
+		$('#friendList').append('<tr>' +
+			'<td>' +
+				'<span class="glyphicon glyphicon-file"></span>' + friendName +
+			'</td>' +
+			'<td class="text-right text-nowrap">' +
+				'<button class="btn btn-xs btn-info">Send message</button>' +
+				'<button class="btn btn-xs btn-warning">' +
+					'<span class="glyphicon glyphicon-trash"></span>' +
+				'</button>' +
+			'</td>' +
+		'</tr>');
+	}
 </script>
